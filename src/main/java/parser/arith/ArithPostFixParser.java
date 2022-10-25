@@ -45,8 +45,8 @@ public class ArithPostFixParser implements PostFixParser<Integer> {
 
     // TONOTDO: please do not edit this class
 
-    private static interface OperatorConstructor {
-        public Operator<Integer> construct();
+    private interface OperatorConstructor {
+        Operator<Integer> construct();
     }
 
     private static final Map<String, OperatorConstructor> operators;
@@ -150,7 +150,7 @@ public class ArithPostFixParser implements PostFixParser<Integer> {
         return nextOperand != null || nextOperator != null;
     }
 
-    private final void getNextParsable() {
+    private void getNextParsable() {
         // If the next parseable has not been given, do nothing.
         if (nextOperand != null || nextOperator != null) {
             return;
@@ -159,7 +159,6 @@ public class ArithPostFixParser implements PostFixParser<Integer> {
         if (tokenizer.hasNextInt()) {
             int token = tokenizer.nextInt();
             nextOperand = new Operand<Integer>(token);
-            return;
         } else if (tokenizer.hasNext()) {
             // Otherwise return the associated operator
             String token = tokenizer.next();

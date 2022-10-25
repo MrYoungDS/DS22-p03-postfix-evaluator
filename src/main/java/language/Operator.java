@@ -16,7 +16,7 @@ public interface Operator<T> {
      * @return the number of {@link Operand}s that this {@link Operator}
      *         needs to perform its operation.
      */
-    public int getNumberOfArguments();
+    int getNumberOfArguments();
 
     /**
      * Performs this operation on values supplied via the
@@ -25,7 +25,7 @@ public interface Operator<T> {
      * @return the result of applying this {@link Operator} to its {@link Operand}s
      * @throws IllegalStateException if the required {@link Operand}s were not set.
      */
-    public Operand<T> performOperation();
+    Operand<T> performOperation();
 
     /**
      * <p>Sets the specified {@link Operand}.</p>
@@ -37,5 +37,5 @@ public interface Operator<T> {
      * @throws IllegalStateException if the position was previously set.
      * @throws NullPointerException if the operand provided is null.
      */
-    public void setOperand(int position, Operand<T> operand);
+    void setOperand(int position, Operand<T> operand);
 }
